@@ -64,12 +64,13 @@ const RestaurantScreen = () => {
                         <ArrowRightIcon size={25} color='#33d9b2'/>
                 </View>
             </View>
-            <View className='py-3 bg-white'> 
+            <View className='py-3 bg-[#f1f2f6]'> 
                 <Text className='font-bold text-2xl py-3 px-4 bg-gray-200'>Menu</Text>
                 
                     {dishes?.map((dish) => (
                         <DishRow
                             key={dish._id}
+                            id={dish._id}
                             name={dish.name}
                             description={dish.short_description}
                             price={dish.price}
