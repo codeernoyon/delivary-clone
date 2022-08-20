@@ -26,9 +26,6 @@ export const counterSlice = createSlice({
       }
       state.items = newBasket;
     },
-    incrementByAmount: (state, action) => {
-      state.items += action.payload
-    },
   },
 })
 
@@ -39,4 +36,7 @@ export const selectBasketItems = (state) => state.basket.items;
 
 export const selectBasketItemsWithId = (state, id) => state.basket.items.filter((item) => item.id === id);
 
+export const selectBasketTotal = (state) => state.basket.items.reduce((total, item) => {
+  return total += item.price
+}, 0); 
 export default counterSlice.reducer

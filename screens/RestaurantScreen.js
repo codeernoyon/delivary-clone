@@ -6,6 +6,7 @@ import { urlFor } from '../sanity';
 import { ArrowRightIcon, StarIcon } from 'react-native-heroicons/solid';
 import { LocationMarkerIcon, QuestionMarkCircleIcon } from 'react-native-heroicons/outline';
 import DishRow from '../components/DishRow';
+import BasketTotal from '../components/BasketTotal';
 
 
 const RestaurantScreen = () => {
@@ -31,8 +32,8 @@ const RestaurantScreen = () => {
         })
     },[]);
   return (
-    <SafeAreaView>
-        <ScrollView>
+    <SafeAreaView className='relative'>
+        <ScrollView className='relative'>
             <Image 
             source={{
                 uri: urlFor(imgUrl).url(),
@@ -64,7 +65,7 @@ const RestaurantScreen = () => {
                         <ArrowRightIcon size={25} color='#33d9b2'/>
                 </View>
             </View>
-            <View className='py-3 bg-[#f1f2f6]'> 
+            <View className='py-3 pb-[85px] bg-[#f1f2f6]'> 
                 <Text className='font-bold text-2xl py-3 px-4 bg-gray-200'>Menu</Text>
                 
                     {dishes?.map((dish) => (
@@ -79,6 +80,8 @@ const RestaurantScreen = () => {
                     ))}
             </View>
         </ScrollView>
+        {/* ====--- Basket total----===== */}
+        <BasketTotal />
     </SafeAreaView>
   )
 }
