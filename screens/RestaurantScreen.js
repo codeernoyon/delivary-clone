@@ -65,8 +65,8 @@ const RestaurantScreen = () => {
                         <ArrowRightIcon size={25} color='#33d9b2'/>
                 </View>
             </View>
-            <View className='py-3 pb-[85px] bg-[#f1f2f6]'> 
-                <Text className='font-bold text-2xl py-3 px-4 bg-gray-200'>Menu</Text>
+            <View className=' pb-[85px] bg-[#f1f2f6]'> 
+                <Text className='font-bold text-2xl py-5 px-4 bg-gray-200'>Menu</Text>
                 
                     {dishes?.map((dish) => (
                         <DishRow

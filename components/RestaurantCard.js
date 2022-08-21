@@ -1,9 +1,11 @@
-import { View, Text,TouchableOpacity,Image } from 'react-native'
-import React from 'react'
-import { StarIcon } from 'react-native-heroicons/solid'
-import { LocationMarkerIcon } from 'react-native-heroicons/outline'
-import { urlFor } from '../sanity'
-import { useNavigation } from '@react-navigation/native'
+import { View, Text,TouchableOpacity,Image } from 'react-native';
+import React, { useEffect } from 'react';
+import { StarIcon } from 'react-native-heroicons/solid';
+import { LocationMarkerIcon } from 'react-native-heroicons/outline';
+import { urlFor } from '../sanity';
+import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { setRestaurant } from '../features/restaurantSlice';
 
 const RestaurantCard = ({
   id,
@@ -18,6 +20,22 @@ const RestaurantCard = ({
   lat
 }) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+      dispatch(
+        setRestaurant({
+          id,
+          imgUrl,
+          title,
+          rating,
+          genre,
+          address,
+          short_description,
+          dishes,
+        })
+      )
+  },[])
   return (
     <TouchableOpacity 
     onPress={() => {
